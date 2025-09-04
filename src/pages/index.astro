@@ -1,0 +1,59 @@
+---
+import TopNav from "../components/TopNav.astro";
+import SocialIcons from "../components/SocialIcons.astro";
+import Layout from "../layouts/Layout.astro";
+import "../styles/global.css";
+import MainNav from "../components/MainNav.astro";
+---
+
+<Layout>
+  <header class="py-4 bg-white border-b border-gray-100">
+    <div class="container mx-auto">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+        {/* Logo */}
+        <div class="flex items-center gap-3">
+          <img
+            src="https://www.comunicacionsocial.uam.mx/identidaduam/images/el-emblema.jpg"
+            alt="UAM Logo"
+            width={120}
+            height={60}
+            class="h-auto"
+          />
+          <div class="flex flex-col">
+            <span class="text-xs md:text-sm font-semibold text-[#4d4d4d]">
+              UNIVERSIDAD AUTÓNOMA METROPOLITANA
+            </span>
+            <span class="text-xs text-[#4d4d4d]">Casa abierta al tiempo</span>
+            <span class="text-xs text-[#6b9d28]">Unidad Iztapalapa</span>
+          </div>
+          <div class="ml-2 border-l pl-2">
+            <span class="text-xs md:text-sm font-bold text-[#000000]">CBI</span>
+            <div class="flex flex-col">
+              <span class="text-xs text-[#4d4d4d]">Ciencias Básicas</span>
+              <span class="text-xs text-[#4d4d4d]">e Ingeniería</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Top Navigation and Search */}
+        <div class="flex flex-col items-end gap-2 w-full md:w-auto">
+          <TopNav />
+          <div class="flex items-center gap-2 w-full md:w-auto">
+            <SocialIcons />
+            <div class="relative w-full md:w-auto">
+              <input
+                type="text"
+                placeholder="Buscar..."
+                class="pl-3 pr-9 py-1.5 text-sm border border-gray-200 rounded-full w-full md:w-[200px] focus:outline-none focus:ring-1 focus:ring-[#6b9d28] focus:border-[#6b9d28] transition-all"
+              />
+              <input
+                class="absolute right-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <MainNav />
+</Layout>
