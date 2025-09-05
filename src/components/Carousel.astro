@@ -1,0 +1,75 @@
+---
+const imageUrlBase = "https://cbi.izt.uam.mx/images/sitio/home/headers/";
+
+const elements = [
+  {
+    imgUrl: `${imageUrlBase}header_01.webp`,
+    title: "División de Ciencias Básicas e Ingeniería",
+    subtitle: "Unidad Iztapalapa",
+    button: {
+      text: "Presentación",
+      url: "https://cbi.izt.uam.mx/index.php/cbi/presentacion",
+    },
+  },
+
+  {
+    imgUrl: `${imageUrlBase}header_02.webp`,
+    title: "Licenciatura",
+    subtitle: "",
+    button: {
+      text: "Leer más",
+      url: "https://cbi.izt.uam.mx/index.php/cbi/presentacion",
+    },
+  },
+
+  {
+    imgUrl: `${imageUrlBase}header_03.webp`,
+    title: "Posgrado",
+    subtitle: "",
+    button: {
+      text: "Leer más",
+      url: "https://cbi.izt.uam.mx/index.php/cbi/presentacion",
+    },
+  },
+
+  {
+    imgUrl: `${imageUrlBase}header_04.webp`,
+    title: "Cordinación Divisional de Docencia y Atención al Alumnado",
+    subtitle: "",
+    button: {
+      text: "Leer más",
+      url: "https://cbi.izt.uam.mx/index.php/cbi/presentacion",
+    },
+  },
+];
+---
+
+<div class="carousel w-full">
+  {
+    elements.map((element, index) => (
+      <div id={`slide${index + 1}`} class="carousel-item relative w-full">
+        <img
+          src={element.imgUrl}
+          class="h-[70vh] w-screen object-cover brightness-50"
+        />
+        <div class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
+          <a href={`#slide${index}`} class="btn btn-circle">
+            ❮
+          </a>
+          <div class="space-y-4">
+            <h2 class="text-5xl font-extrabold text-shadow-lg">
+              {element.title}
+            </h2>
+            <h3 class="text-2xl font-bold text-shadow-md">
+              {element.subtitle}
+            </h3>
+            <button class="btn btn-success">{element.button.text}</button>
+          </div>
+          <a href={`#slide${index + 2}`} class="btn btn-circle">
+            ❯
+          </a>
+        </div>
+      </div>
+    ))
+  }
+</div>
