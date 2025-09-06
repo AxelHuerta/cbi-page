@@ -53,7 +53,10 @@ const elements = [
           class="h-[70vh] w-screen object-cover brightness-50"
         />
         <div class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-          <a href={`#slide${index}`} class="btn btn-circle">
+          <a
+            href={index != 0 ? `#slide${index}` : `#slide${elements.length}`}
+            class="btn btn-circle"
+          >
             ❮
           </a>
           <div class="space-y-4">
@@ -65,7 +68,12 @@ const elements = [
             </h3>
             <button class="btn btn-success">{element.button.text}</button>
           </div>
-          <a href={`#slide${index + 2}`} class="btn btn-circle">
+          <a
+            href={
+              index === elements.length ? `#slide${index + 2}` : `#slide${1}`
+            }
+            class="btn btn-circle"
+          >
             ❯
           </a>
         </div>
