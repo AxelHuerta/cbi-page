@@ -70,7 +70,9 @@ const elements = [
           </div>
           <a
             href={
-              index === elements.length ? `#slide${index + 2}` : `#slide${1}`
+              index + 1 === elements.length
+                ? `#slide${1}`
+                : `#slide${index + 2}`
             }
             class="btn btn-circle"
           >
