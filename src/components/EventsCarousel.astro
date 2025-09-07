@@ -1,0 +1,72 @@
+---
+const imageUrlBase = "https://cbi.izt.uam.mx/images/sitio/home/headers/";
+
+const elements = [
+  {
+    // NOTE: Solo se toman las portadas, no se muestran eventos previos
+    imgUrl: `https://cbi.izt.uam.mx/images/eventos/2025/08_agosto/06_hplc_portada.webp`,
+    title: "Cromatografía de Líquidos de Alta Resolución (HPLC)",
+    subtitle: "",
+    button: {
+      text: "Leer más",
+      url: "https://cbi.izt.uam.mx/images/eventos/2025/08_agosto/06_hplc_portada.webp",
+    },
+  },
+
+  // TODO: Buscar petición de los elementos de esta lista
+  {
+    imgUrl: `https://cbi.izt.uam.mx/images/eventos/2025/07_julio/04_workshop_portada.webp`,
+    title:
+      "The Second International Workshop on Active Learning: How Students Learn",
+    subtitle: "Dr. Louis Deslauriers",
+    button: {
+      text: "Leer más",
+      url: "https://cbi.izt.uam.mx/index.php/cbi/presentacion",
+    },
+  },
+];
+---
+
+<div class="carousel w-full">
+  {
+    elements.map((element, index) => (
+      <div id={`slide-event${index + 1}`} class="carousel-item relative w-full">
+        <div class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
+          <a
+            href={
+              index != 0
+                ? `#slide-event${index}`
+                : `#slide-event${elements.length}`
+            }
+            class="btn btn-circle"
+          >
+            ❮
+          </a>
+
+          <a
+            href={
+              index + 1 === elements.length
+                ? `#slide-event${1}`
+                : `#slide-event${index + 2}`
+            }
+            class="btn btn-circle"
+          >
+            ❯
+          </a>
+        </div>
+
+        <div class="grid grid-cols-2">
+          <div class="space-y-4 p-24 flex flex-col justify-center">
+            <h2 class="text-2xl font-bold">{element.title}</h2>
+            <h3 class="text-xl font-semibold">{element.subtitle}</h3>
+            <div>
+              <button class="btn btn-success">{element.button.text}</button>
+            </div>
+          </div>
+
+          <img src={element.imgUrl} />
+        </div>
+      </div>
+    ))
+  }
+</div>
